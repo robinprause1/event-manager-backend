@@ -1,5 +1,4 @@
-
-import { Schema, Document } from 'mongoose';
+import { Schema, Document, Types } from 'mongoose';
 
 export interface Event extends Document {
   name: string;
@@ -7,6 +6,7 @@ export interface Event extends Document {
   location: string;
   agenda: any[];
   votes: any[];
+  staff: Types.ObjectId[]; // new field
 }
 
 export const EventSchema = new Schema({
@@ -14,5 +14,6 @@ export const EventSchema = new Schema({
   date: { type: Date, required: true },
   location: { type: String, required: true },
   agenda: { type: Array, default: [] },
-  votes: { type: Array, default: [] }
+  votes: { type: Array, default: [] },
+  staff: [{ type: Types.ObjectId, ref: 'Staff' }], // new field
 });

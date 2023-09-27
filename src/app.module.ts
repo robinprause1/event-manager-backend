@@ -6,6 +6,9 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { StaffModule } from './MODULE_staff/staff.module';
 import { StaffImportModule } from './MODULE_staff_import/staff-import.module';
 import { FeedbackModule } from './MODULE_event_feedback/feedback.module';
+import { BusinessUnitModule } from './MODULE_business-unit/business-unit.module';
+import { BusinessUnitAssociationModule } from './MODULE_bUAssoc/business-unit-association.module';
+import { EventAssociationModule } from './MODULE_eventAssoc/event-association.module';
 
 @Module({
   imports: [
@@ -13,7 +16,10 @@ import { FeedbackModule } from './MODULE_event_feedback/feedback.module';
     EventModule,
     StaffModule,
     StaffImportModule,
-    FeedbackModule
+    FeedbackModule,
+    BusinessUnitModule,
+    BusinessUnitAssociationModule,
+    EventAssociationModule
   ],
   controllers: [AppController],
   providers: [AppService],
