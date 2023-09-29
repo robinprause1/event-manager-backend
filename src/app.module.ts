@@ -9,6 +9,8 @@ import { FeedbackModule } from './MODULE_event_feedback/feedback.module';
 import { BusinessUnitModule } from './MODULE_business-unit/business-unit.module';
 import { BusinessUnitAssociationModule } from './MODULE_bUAssoc/business-unit-association.module';
 import { EventAssociationModule } from './MODULE_eventAssoc/event-association.module';
+import { LineModule } from './MODULE_line/line.module';
+import { VoteModule } from './MODULE_vote/vote.module';
 
 @Module({
   imports: [
@@ -19,7 +21,9 @@ import { EventAssociationModule } from './MODULE_eventAssoc/event-association.mo
     FeedbackModule,
     BusinessUnitModule,
     BusinessUnitAssociationModule,
-    EventAssociationModule
+    EventAssociationModule,
+    LineModule,
+    VoteModule
   ],
   controllers: [AppController],
   providers: [AppService],

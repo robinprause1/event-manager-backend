@@ -4,6 +4,7 @@ import { StaffImportService } from './staff-import.service';
 import { StaffSchema } from './staff-import.model';
 import { LineSchema } from '../MODULE_line/line.model'
 import { BusinessUnitSchema } from '../MODULE_business-unit/business-unit.model'
+import { StaffImportController } from './staff-import.controller';
 
 @Module({
   imports: [
@@ -14,6 +15,6 @@ import { BusinessUnitSchema } from '../MODULE_business-unit/business-unit.model'
     ])
   ],
   providers: [StaffImportService],
-  exports: [StaffImportService]
+  controllers: [StaffImportController]
 })
 export class StaffImportModule {}

@@ -1,5 +1,5 @@
 
-import { Controller, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, HttpException, HttpStatus, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { StaffImportService } from './staff-import.service';
 
@@ -9,8 +9,21 @@ export class StaffImportController {
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
-  async uploadFile(@UploadedFile() file): Promise<string> {
-    await this.staffImportService.importCsvFile(file.buffer);
-    return 'File has been uploaded and processed.';
+  async uploadFile(@UploadedFile() file): Promise<any> {
+    try {
+      await this.staffImportService.importCsvFile(file.buffer);
+      return {
+        message: 'File has been uploaded and processed.',
+        status: HttpStatus.OK,
+      };
+    } catch (error) {
+      throw new HttpException(
+        {
+          status: HttpStatus.BAD_REQUEST,
+          error: error.message,
+        },
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 }
