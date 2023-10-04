@@ -5,7 +5,6 @@ export interface Event extends Document {
   date: Date;
   location: string;
   agenda: any[];
-  votes: any[];
   staff: Types.ObjectId[]; // new field
 }
 
@@ -14,6 +13,6 @@ export const EventSchema = new Schema({
   date: { type: Date, required: true },
   location: { type: String, required: true },
   agenda: { type: Array, default: [] },
-  votes: { type: Array, default: [] },
-  staff: [{ type: Types.ObjectId, ref: 'Staff' }], // new field
+  staff: [{ type: Types.ObjectId, ref: 'Staff' }] // new field
 });
+
