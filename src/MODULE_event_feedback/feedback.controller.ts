@@ -1,5 +1,5 @@
 
-import { Controller, Post, Body, Get, Query } from '@nestjs/common';
+import { Controller, Post, Body, Get, Query, Param } from '@nestjs/common';
 import { FeedbackService } from './feedback.service';
 import { Feedback } from './feedback.model';
 
@@ -9,13 +9,14 @@ export class FeedbackController {
 
   @Post()
   async addFeedback(@Body() feedback: Feedback): Promise<Feedback> {
-    return this.feedbackService.create(feedback);
+    return await this.feedbackService.create(feedback);
   }
 
-  @Get()
-  async getFeedbackByEventId(@Query('eventId') eventId: string): Promise<Feedback[]> {
-    return this.feedbackService.findByEventId(eventId);
+  @Get(':eventId')
+  async getFeedbackByEventId(@Param('eventId') eventId: string): Promise<Feedback[]> {
+    return await this.feedbackService.findByEventId(eventId);
   }
+
 
   // Implement other endpoints as needed
 }

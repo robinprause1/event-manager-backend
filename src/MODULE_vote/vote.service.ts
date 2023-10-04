@@ -15,4 +15,12 @@ export class VoteService {
   async getVotesByEvent(eventId: string): Promise<Vote[]> {
     return await this.voteModel.find({ eventId }).exec();
   }
+
+  async updateVote(eventId: string, staffId: string, choice: string): Promise<Vote> {
+    return await this.voteModel.findOneAndUpdate(
+      { eventId, staffId },
+      { $set: { choice } },
+      { new: true }
+    ).exec();
+  }
 }

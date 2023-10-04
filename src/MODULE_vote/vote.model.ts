@@ -1,13 +1,13 @@
-import { Schema, Document } from 'mongoose';
+import { Types, Schema, Document } from 'mongoose';
 
 export interface Vote extends Document {
-  eventId: string;
-  staffId: string;
-  choice: string; // You can define this based on your voting options
+  eventId: Types.ObjectId;
+  staffId: Types.ObjectId;
+  choice: string;
 }
 
 export const VoteSchema = new Schema({
-  eventId: { type: String, required: true },
-  staffId: { type: String, required: true },
+  eventId: { type: Types.ObjectId, required: true },
+  staffId: { type: Types.ObjectId, required: true },
   choice: { type: String, required: true },
 });

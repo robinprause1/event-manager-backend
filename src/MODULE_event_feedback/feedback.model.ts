@@ -1,14 +1,19 @@
-
-import { Schema, Document } from 'mongoose';
+import { Schema, Types } from 'mongoose';
 
 export interface Feedback extends Document {
-  eventId: string;
-  staffId: string;
-  feedback: string;
+  eventId: Types.ObjectId;
+  staffId: Types.ObjectId;
+  feedback: {
+    rating: number;
+    text: string;
+  };
 }
 
 export const FeedbackSchema = new Schema({
-  eventId: String,
-  staffId: String,
-  feedback: String,
+  eventId: { type: Types.ObjectId, required: true },
+  staffId: { type: Types.ObjectId, required: true },
+  feedback: {
+    rating: { type: Number, required: true },
+    text: { type: String, required: true },
+  },
 });
