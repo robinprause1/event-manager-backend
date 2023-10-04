@@ -19,4 +19,14 @@ export class BusinessUnitAssociationController {
   async findStaffAssociations(@Param('id') staffId: string) {
     return this.service.findStaffAssociations(staffId);
   }
+
+  @Get('business-unit/:businessUnitId/staff')
+  async getAllStaffOfBusinessUnit(@Param('businessUnitId') businessUnitId: string) {
+    try {
+      const staff = await this.service.getAllStaffOfBusinessUnit(businessUnitId);
+      return staff;
+    } catch (error) {
+      // Handle error appropriately
+    }
+  }
 }

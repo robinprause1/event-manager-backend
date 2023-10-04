@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Staff } from 'src/MODULE_staff/staff.model';
@@ -26,5 +26,19 @@ export class BusinessUnitAssociationService {
     const line = await this.lineModel.findById(staff.line).exec();
     const businessUnit = await this.businessUnitModel.findById(line.businessUnit).exec();
     return { staff, line, businessUnit };
+  }
+
+  async getAllStaffOfBusinessUnit(businessUnitId: string): Promise<Staff[]> {
+    const businessUnit = await this.businessUnitModel.findById(businessUnitId);
+    if (!businessUnit) {
+      throw new NotFoundException('Business Unit not found');
+    }
+
+    const staffMembers = await this.staffModel.find({ businessUnit: businessUnitId }).exec();
+    if (!staffMembers.length) {
+      throw new NotFoundException('No staff found for this business unit');
+    }
+
+    return staffMembers;
   }
 }
