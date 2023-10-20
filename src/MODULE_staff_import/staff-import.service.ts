@@ -25,20 +25,17 @@ export class StaffImportService {
     bufferStream.pipe(staffStream);
   
     for await (const row of staffStream) {
-      const line = await this.lineModel.findOne({ name: row.line });
       const businessUnit = await this.businessUnitModel.findOne({ name: row.businessUnit });
-  
-      // Check if line and business unit exist
-      if (!line) {
-        throw new NotFoundException(`Line "${row.line}" not found for staff ${row.name}`);
-      }
+      const line = await this.lineModel.findOne({ name: row.line, businessUnit: businessUnit._id });
+
+      // Check if business unit exist
       if (!businessUnit) {
         throw new NotFoundException(`Business Unit "${row.businessUnit}" not found for staff ${row.name}`);
       }
   
-      // Check if the line belongs to the business unit
-      if (String(line.businessUnit) !== String(businessUnit._id)) {
-        throw new BadRequestException(`Line "${row.line}" does not belong to Business Unit "${row.businessUnit}"`);
+      // Check if line exists and belongs to the business unit
+      if (!line) {
+        throw new NotFoundException(`Line "${row.line}" not found for Business Unit "${row.businessUnit}" and staff ${row.name}`);
       }
   
       const newStaff = new this.staffModel({
