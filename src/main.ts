@@ -5,7 +5,7 @@ import * as cors from 'cors';
 
 async function bootstrap() {
   const logger = new Logger('bootstrap');
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.createApplicationContext(AppModule);
   
   // Enable CORS
   app.enableCors({
@@ -17,8 +17,6 @@ async function bootstrap() {
   // Set global prefix
   app.setGlobalPrefix('api');
 
-  const port = 3001;
-  await app.listen(port);
-  logger.log(`Application listening on port ${port}`);
+  logger.log(`Application startet`);
 }
 bootstrap();

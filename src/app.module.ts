@@ -14,7 +14,7 @@ import { VoteModule } from './MODULE_vote/vote.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/event-manager'),
+    MongooseModule.forRoot(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.fmz8ifp.mongodb.net/event-manager`),
     EventModule,
     StaffModule,
     StaffImportModule,
