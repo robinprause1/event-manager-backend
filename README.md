@@ -6,7 +6,7 @@ Archiv der Bachelorarbeit von Robin Richard Prause, Studiengang Medieninformatik
 
 Die Arbeit und der Code in diesem Repository wurden 2023 vollständig mit chatbasierten KI-Modellen erzeugt. Der Praxisversuch war prompt-basiert: der Code entstand durch Prompts und Rückfragen an das Modell, nicht durch klassisches Schreiben von Hand. Dieses Repo ist der unveränderte Backend-Stand vom Herbst 2023 und wird nicht weiterentwickelt.
 
-Die vollständige Arbeit (96 Seiten): [docs/Bachelorarbeit_Robin_Prause.pdf](docs/Bachelorarbeit_Robin_Prause.pdf)
+Zum Durchsuchen: [INDEX.md](INDEX.md) (Kennzahlen, Kapitel, Dateien) und [llms.txt](llms.txt) (kurzer Einstieg). Die vollständige Arbeit (96 Seiten): [docs/Bachelorarbeit_Robin_Prause.pdf](docs/Bachelorarbeit_Robin_Prause.pdf)
 
 Referent: Dipl.-Ing. Benjamin Einert. Korreferent: Prof. Dr.-Ing. Nicolas Stein. Betreuung bei Randstad Digital Germany AG: Nicolas Wombacher.
 

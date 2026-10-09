@@ -1,0 +1,25 @@
+# Event Manager Backend — Bachelorarbeit Chat-KI 2023
+
+> Archiv einer Bachelorarbeit (THM Friedberg, Medieninformatik, November 2023). Arbeit und Code wurden 2023 vollständig mit chatbasierten KI-Modellen erzeugt. Zuerst INDEX.md lesen. Die PDF nur für Zitate, Abbildungen und Literatur.
+
+Robin Richard Prause. Titel: Experimentelle Bearbeitung von Möglichkeiten und Grenzen für Webentwickler durch aktuelle chatbasierte KI-Modelle. Praxisversuch: Event-Manager, prompt-basiert mit ChatGPT (GPT-4), Regel „No Coding“. Dieses Repository ist nur das NestJS-Backend.
+
+## Start
+
+- [INDEX.md](INDEX.md): Scan-Karte mit Kennzahlen, Kapiteln und Dateien
+- [README.md](README.md): Kontext und lokaler Start
+- [docs/Bachelorarbeit_Robin_Prause.pdf](docs/Bachelorarbeit_Robin_Prause.pdf): Volltext, 96 Seiten. Arbeitseite N liegt auf PDF-Seite N+10
+
+## Code
+
+- [src/app.module.ts](src/app.module.ts): Modulgraph, MongoDB-Anbindung
+- [src/main.ts](src/main.ts): Bootstrap, globales Prefix `api`
+- [src/MODULE_event](src/MODULE_event): Events und Staff-Zuordnung
+- [src/MODULE_staff](src/MODULE_staff): Mitarbeiter
+- [src/MODULE_staff_import](src/MODULE_staff_import): CSV-Import
+- [src/MODULE_line](src/MODULE_line): Lines
+- [src/MODULE_business-unit](src/MODULE_business-unit): Business Units
+- [src/MODULE_bUAssoc](src/MODULE_bUAssoc): Zuordnung Business Unit, Line, Staff
+- [src/MODULE_eventAssoc](src/MODULE_eventAssoc): Zuordnung Staff und Line zu Events
+- [src/MODULE_event_feedback](src/MODULE_event_feedback): Feedback
+- [src/MODULE_vote](src/MODULE_vote): Terminabstimmung
